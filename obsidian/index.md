@@ -1,8 +1,10 @@
-# Stats and ML Theory Vault
+# Statistics and Machine Learning Theory
 
-This vault is the thinking layer for studying statistics, probability, machine learning, and data science foundations.
+These notes cover foundational ideas in statistics, probability, machine learning, and Python-based data science.
 
-## Starting Concepts
+The goal is to build a clear understanding of core concepts and how they connect in practical analysis.
+
+## Concepts
 
 - [[Python for Data Science]]
 - [[Statistics]]
@@ -10,11 +12,3 @@ This vault is the thinking layer for studying statistics, probability, machine l
 - [[Variance]]
 - [[Standard Deviation]]
 - [[Normal Distribution]]
-
-## Workflow
-
-1. Capture concepts quickly as linked Markdown notes.
-2. Connect prerequisites using `[[wikilinks]]`.
-3. Use Foam/Obsidian graph view to inspect relationships.
-4. Promote mature notes into LaTeX when ready.
-
