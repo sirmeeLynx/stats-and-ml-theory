@@ -1,0 +1,10 @@
+{
+  "foam.openDailyNote.directory": "obsidian/journal",
+  "foam.graph.style": {
+    "background": "#202020",
+    "node": {
+      "note": "#f2cb05"
+    }
+  }
+}
+
