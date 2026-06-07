@@ -1,14 +1,18 @@
 ---
 sources:
+  - video: "2.1.8 Normal Distributions Theory"
+    course_id: 141734
+    item_id: 7718516
+    duration: "16:59"
   - video: "2.1.10 Z-Score Hands-On"
     course_id: 141734
     item_id: 7718522
-    duration: "06:48"
+    duration: "06:47"
 ---
 
 # Z-Score
 
-A **z-score** tells you how many standard deviations a value is above or below the mean. The lecture presents it as the standard way to compare results measured on different scales. [→ 2.1.10 @ 00:05] [→ 2.1.10 @ 00:34]
+A z-score is the standardized version of a value: it tells us how many standard deviations above or below the mean that value sits. [→ 2.1.8 @ 15:56] [→ 2.1.10 @ 03:39]
 
 ## Formula
 
@@ -16,37 +20,43 @@ $$
 z=\frac{x-\mu}{\sigma}
 $$
 
-where:
-
-- $x$ is the observed value,
-- $\mu$ is the mean,
-- $\sigma$ is the standard deviation.
-
-You can also go back from a z-score to the original scale:
-
-$$
-x=\mu+z\sigma
-$$
+Standardizing converts a normal variable into the **standard normal** distribution with mean 0 and standard deviation 1. [→ 2.1.8 @ 14:24] [→ 2.1.8 @ 15:10]
 
 ## How to interpret it
 
 - $z>0$: the value is above the mean.
 - $z<0$: the value is below the mean.
-- $|z|$ tells you how far from the mean the value is, in SD units.
+- $|z|$: the distance from the mean in standard deviation units.
 
-This is why z-scores are useful in the [[Normal Distribution]] and in [[inferential-statistics|inferential statistics]] more broadly.
+The lecture's examples make this concrete: a height with z-score 1 is one standard deviation above average, while a bone-density score of -1.5 is one and a half standard deviations below average. [→ 2.1.8 @ 16:06] [→ 2.1.8 @ 16:31]
 
-## When to use z-scores
+## Why z-scores matter
 
-Use z-scores when:
+Raw scores on different scales are not directly comparable. Z-scores fix that by putting all variables onto the same standardized scale. [→ 2.1.10 @ 02:22] [→ 2.1.10 @ 06:03]
 
-- you want to compare two observations from different scales,
-- you want to standardize a variable,
-- or you want to translate a raw score into the language of the standard normal distribution. [→ 2.1.10 @ 04:02] [→ 2.1.10 @ 06:09]
+This is why z-scores connect the [[Normal Distribution]] to fair comparisons across different tests, measurements, or business metrics.
+
+## SAT vs ACT example
+
+The lecture compares two fellowship candidates:
+
+- SAT scores have mean 1000 and standard deviation 200,
+- ACT scores have mean 20 and standard deviation 5,
+- the top observed scores are 1350 on SAT and 30 on ACT. [→ 2.1.10 @ 00:47] [→ 2.1.10 @ 01:16] [→ 2.1.10 @ 02:07]
+
+Standardizing the stated numbers gives:
+
+$$
+z_{\text{SAT}}=\frac{1350-1000}{200}=1.75
+$$
+
+$$
+z_{\text{ACT}}=\frac{30-20}{5}=2.0
+$$
+
+So the ACT student performed better relative to that exam's own population, because 2.0 standard deviations above the mean is stronger than 1.75. This is the real point of the example: compare relative standing, not raw score magnitudes. [→ 2.1.10 @ 04:00] [→ 2.1.10 @ 05:09]
 
 ## Python hands-on
-
-The lecture compares SAT and ACT scores by standardizing them. [→ 2.1.10 @ 03:41]
 
 ```python
 from scipy.stats import norm
@@ -60,27 +70,16 @@ act_z = (act_score - act_mean) / act_sd
 sat_percentile = norm.cdf(sat_z)
 act_percentile = norm.cdf(act_z)
 
-print(sat_z)         # 1.75
-print(act_z)         # 2.0
+print(sat_z)          # 1.75
+print(act_z)          # 2.0
 print(sat_percentile)
 print(act_percentile)
 ```
-
-Using the stated numbers from the lecture, the correct standardized scores are:
-
-- SAT: $z=(1350-1000)/200=1.75$
-- ACT: $z=(30-20)/5=2.0$
-
-So the ACT score is farther above its own test mean and is therefore stronger relative to peers. [→ 2.1.10 @ 05:07]
-
-## Relation to the standard normal
-
-If $X$ is normally distributed, standardizing it gives a variable with mean 0 and standard deviation 1. That is the bridge between raw values and probability lookups using the standard normal table or `scipy.stats.norm`.
 
 ## Summary
 
 - A z-score measures distance from the mean in **standard deviation units**.
 - Formula: $z=(x-\mu)/\sigma$.
-- Z-scores let you compare values across different scales.
-- Larger positive z-scores mean better performance relative to the distribution.
-- In a quiz, check the arithmetic carefully: subtract the mean first, then divide by the SD.
+- Standardizing creates the standard normal with mean 0 and standard deviation 1.
+- Z-scores make cross-scale comparisons fair.
+- Quiz fact: bigger positive z-score means stronger performance relative to the underlying distribution.

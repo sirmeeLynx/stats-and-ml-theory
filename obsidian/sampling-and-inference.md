@@ -3,55 +3,52 @@ sources:
   - video: "2.1.11 Sampling and Inference Foundations"
     course_id: 141734
     item_id: 7718524
-    duration: "09:17"
+    duration: "09:16"
 ---
 
 # Sampling and Inference
 
-A **sample** is a finite subset of a larger **population**, and inferential statistics uses the sample to say something about the population. [→ 2.1.11 @ 00:39] [→ 2.1.11 @ 01:27]
+A sample is only a finite slice of a larger population, but business decisions usually care about the whole population. This note is about how that jump is made. [→ 2.1.11 @ 00:41] [→ 2.1.11 @ 01:28]
 
-## Population, sample, parameter, statistic
+## Representative samples matter
 
-These pairs are essential:
+The lecture stresses that inference only makes sense if the sample is representative of the population. A simple way to formalize that is a **simple random sample**, where every member of the population has an equal chance of being chosen. [→ 2.1.11 @ 02:19] [→ 2.1.11 @ 02:39]
 
-- **Population**: the full group you care about.
-- **Sample**: the observed subset.
-- **Parameter**: a population quantity such as $\mu$ or $p$.
-- **Statistic**: a sample quantity such as $\bar{x}$ or $\hat{p}$.
-
-This note sits directly on top of [[inferential-statistics|inferential statistics]].
-
-## Simple random sampling
-
-The lecture highlights **simple random sampling**: each member of the population should have an equal chance of selection. [→ 2.1.11 @ 02:36]
-
-That matters because biased sampling produces biased inference.
+This is the sampling foundation underneath [[inferential-statistics|inferential statistics]].
 
 ## Sampling distribution
 
-A **sampling distribution** is the distribution of a statistic over many repeated samples of the same size. [→ 2.1.11 @ 03:27]
+A **sampling distribution** is the distribution of a statistic over many repeated samples. If two analysts each draw a sample of size 100, they will generally get different values of the sample mean $\bar{X}$. The distribution of all those possible $\bar{X}$ values is the sampling distribution. [→ 2.1.11 @ 03:28] [→ 2.1.11 @ 04:24]
 
-For the sample mean $\bar{X}$, two results are especially important:
+## Key facts for the sample mean
+
+If the population has mean $\mu$ and standard deviation $\sigma$, then the lecture gives two crucial results for the sampling distribution of $\bar{X}$:
 
 $$
 E[\bar{X}] = \mu
 $$
 
 $$
+\operatorname{SD}(\bar{X}) = \frac{\sigma}{\sqrt{n}}
+$$
+
+Equivalently,
+
+$$
 \operatorname{Var}(\bar{X}) = \frac{\sigma^2}{n}
 $$
 
-$$
-\operatorname{SE}(\bar{X}) = \frac{\sigma}{\sqrt{n}}
-$$
-
-The lecture emphasizes that the standard deviation of the sampling distribution of the mean is called the **standard error**. [→ 2.1.11 @ 08:09]
+The quantity $\sigma/\sqrt{n}$ is the **standard error** of the sample mean. [→ 2.1.11 @ 06:39] [→ 2.1.11 @ 07:00] [→ 2.1.11 @ 08:10]
 
 ## Why larger samples help
 
-As $n$ increases, $\sigma/\sqrt{n}$ decreases, so the sample mean varies less from sample to sample. Larger samples therefore give more stable estimates. [→ 2.1.11 @ 07:54]
+The lecture's intuition is cancellation: large and small values average each other out, so the variability of the sample mean is smaller than the variability of individual observations. As $n$ grows, $\sigma/\sqrt{n}$ gets smaller, so the estimate becomes more stable. [→ 2.1.11 @ 07:19] [→ 2.1.11 @ 08:00]
 
-A subtle but important point from the lecture: these mean and standard-error formulas still hold even if the original population is not normal. [→ 2.1.11 @ 08:37]
+## One subtle but important fact
+
+These two properties of the sample mean do **not** depend on the population being normal. The lecture explicitly says that $E[\bar{X}]=\mu$ and $\operatorname{SD}(\bar{X})=\sigma/\sqrt{n}$ hold even when the population distribution itself is not normal. [→ 2.1.11 @ 08:38]
+
+The next question is whether the **shape** of the sampling distribution becomes normal. That is exactly the topic of the [[central-limit-theorem|Central Limit Theorem]]. [→ 2.1.11 @ 09:05]
 
 ## Python hands-on
 
@@ -64,24 +61,20 @@ mu = population.mean()
 sigma = population.std(ddof=0)
 
 n = 25
-sample_means = [
+sample_means = np.array([
     np.random.choice(population, size=n, replace=True).mean()
-    for _ in range(2_000)
-]
+    for _ in range(2000)
+])
 
-sample_means = np.array(sample_means)
-print(mu)                           # population mean
-print(sample_means.mean())          # close to mu
-print(sample_means.std(ddof=1))     # close to sigma / sqrt(n)
+print(sample_means.mean())      # close to mu
+print(sample_means.std(ddof=1)) # close to sigma / sqrt(n)
 print(sigma / np.sqrt(n))
 ```
-
-This is the computational version of the lecture's sampling-distribution story.
 
 ## Summary
 
 - A **sampling distribution** is the distribution of a statistic across repeated samples.
-- For the sample mean, $E[\bar{X}] = \mu$.
-- The standard error of the mean is $\sigma/\sqrt{n}$.
+- For the sample mean, the center is $\mu$ and the spread is $\sigma/\sqrt{n}$.
+- $\sigma/\sqrt{n}$ is the **standard error**.
 - Larger samples reduce sampling variability.
-- Quiz mindset: distinguish the **population distribution** from the **sampling distribution**.
+- Quiz mindset: distinguish the **population distribution** from the **sampling distribution of a statistic**.

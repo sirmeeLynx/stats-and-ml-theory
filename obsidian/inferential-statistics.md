@@ -3,7 +3,7 @@ sources:
   - video: "2.1.1 Introduction and Agenda"
     course_id: 141734
     item_id: 7718500
-    duration: "03:57"
+    duration: "03:56"
   - video: "2.1.2 Introduction to Inferential Statistics"
     course_id: 141734
     item_id: 7718502
@@ -12,85 +12,96 @@ sources:
 
 # Inferential Statistics
 
-Inferential statistics uses a **sample** to learn about a larger **population**. It is the part of statistics that moves from describing observed data to making estimates, comparisons, and decisions under uncertainty. [→ 2.1.1 @ 00:22]
+Inferential statistics takes us beyond describing the data we already have. Its job is to use a [[sampling-and-inference|sample]] to say something useful about a larger population and support decisions about cases we have not yet observed. [→ 2.1.1 @ 00:18] [→ 2.1.2 @ 05:31]
 
-*Note: the exported `2.1.2` VTT file is empty, so the timestamps below come from `2.1.1` and nearby 2.1 lectures that introduce and apply the same inferential-statistics ideas.*
+## From descriptive summaries to population conclusions
 
-## Core idea: sample \(\rightarrow\) population
+The lecture contrasts two kinds of questions:
 
-The course frames this section as the move from descriptive statistics to conclusions with business value: we observe a sample, but we care about the full population. [→ 2.1.1 @ 00:29] [→ 2.1.1 @ 02:11]
+- **descriptive** questions: What is the mean, median, range, variance, or correlation in this data set?
+- **inferential** questions: What do these observed values tell me about the wider population the data came from? [→ 2.1.2 @ 00:17] [→ 2.1.2 @ 04:52]
 
-A few core symbols are worth memorizing:
+In business terms, descriptive statistics gives a snapshot or dashboard of what already happened. Inferential statistics asks what that evidence means for future customers, future production, future sales, or other unobserved cases. [→ 2.1.2 @ 02:03] [→ 2.1.2 @ 03:57]
 
-- Population mean: $\mu$
-- Population proportion: $p$
-- Sample mean: $\bar{x}$
-- Sample proportion: $\hat{p}$
+## Sample vs population
 
-A sample statistic is used as an estimate of a population parameter:
+The birth-weight example in the lecture is the core picture to remember:
+
+- the **histogram** summarizes the sample,
+- the **smooth curve** represents the population distribution,
+- probability questions about future babies belong to the population model, not just the sample count. [→ 2.1.2 @ 06:53] [→ 2.1.2 @ 08:24] [→ 2.1.2 @ 10:43]
+
+Useful notation:
+
+- population mean: $\mu$
+- population standard deviation: $\sigma$
+- sample mean: $\bar{x}$
+- sample standard deviation: $s$
+
+The inferential move is:
 
 $$
-\hat{\mu} = \bar{x}, \qquad \hat{p} = \frac{x}{n}
+\text{sample evidence} \rightarrow \text{population statement}
 $$
 
 ## Why probability distributions matter
 
-The agenda explicitly introduces **random variables** and **probability distributions** before topics like binomial, uniform, normal, sampling, and estimation. [→ 2.1.1 @ 00:50] [→ 2.1.1 @ 01:34]
+Inference needs probability models. Once a sample is linked to a population distribution, questions like “what fraction lies below 3000 grams?” become probability or area calculations. That is why the course next introduces [[distribution-terms|distribution terms]] and specific models such as the [[binomial-distribution|Binomial Distribution]], [[uniform-distribution|Uniform Distribution]], and [[Normal Distribution]]. [→ 2.1.1 @ 00:50] [→ 2.1.2 @ 11:01] [→ 2.1.2 @ 21:54]
 
-This matters because inference is never just “one number from one sample.” It depends on the idea that repeated samples would vary, and probability distributions describe that variation.
+## Business questions the lecture highlights
 
-## What inferential statistics is used for
+The same inferential logic appears in several settings:
 
-Use inferential statistics when:
+- quality testing: is a new process better than the old one? [→ 2.1.2 @ 12:48]
+- weather-based decisions: what is the chance temperature exceeds a threshold? [→ 2.1.2 @ 15:19]
+- training and sales: do trained staff really perform better in future groups? [→ 2.1.2 @ 17:39]
+- marketing: did a campaign lift conversion enough to justify investment? [→ 2.1.2 @ 19:08]
 
-- you only observe part of a population,
-- you need to estimate an unknown population quantity,
-- you want to attach uncertainty to that estimate,
-- or you need to generalize from data to decisions. [→ 2.1.1 @ 02:58]
+These are not questions about one finished spreadsheet. They are questions about generalizing from data to action.
 
-This section of the course leads directly into [[distribution-terms|distribution terms]], the [[binomial-distribution|binomial distribution]], the [[uniform-distribution|uniform distribution]], the [[Normal Distribution]], [[z-score|Z-Score]], [[sampling-and-inference|sampling and inference]], [[central-limit-theorem|Central Limit Theorem]], and [[estimation|estimation]].
+## Estimation and uncertainty
 
-## Point estimates vs interval estimates
+The lecture emphasizes that business inference needs not only an answer but also a sense of how reliable that answer is. That is why this section leads into [[estimation|estimation]], where a point estimate is expanded into a range with uncertainty around it. [→ 2.1.2 @ 17:08] [→ 2.1.2 @ 20:29]
 
-A **point estimate** gives one best-guess number, such as $\bar{x}$ for $\mu$.
-
-An **interval estimate** gives a plausible range:
+A generic interval form is
 
 $$
 \text{estimate} \pm \text{margin of error}
 $$
 
-The agenda names estimation as both a single-number and interval-based task. [→ 2.1.1 @ 02:58]
+## Python sketch: sample histogram vs population curve
 
-## Python hands-on
-
-A simple way to see inference is to compare a population value to the value from one random sample.
+This mirrors the lecture's birth-weight example: count directly from the sample, then compare it with a model-based population probability.
 
 ```python
 import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import norm
 
-np.random.seed(7)
+# illustrative birth-weight sample in grams
+weights = np.array([2750, 2890, 3010, 3120, 3300, 3410, 3520, 3610, 3720, 3890])
 
-# large synthetic population
-population = np.random.normal(loc=72, scale=8, size=100_000)
-mu = population.mean()
+xbar = weights.mean()
+s = weights.std(ddof=1)
 
-# one sample from that population
-sample = np.random.choice(population, size=120, replace=False)
-xbar = sample.mean()
-s = sample.std(ddof=1)
+# descriptive answer from the sample
+sample_prop_below_3000 = (weights < 3000).mean()
 
-print(mu)    # population mean (unknown in real life)
-print(xbar)  # sample mean used to estimate mu
-print(s)     # sample standard deviation
+# inferential answer from a smooth population model
+rv = norm(loc=xbar, scale=s)
+model_prob_below_3000 = rv.cdf(3000)
+
+x = np.linspace(weights.min() - 200, weights.max() + 200, 300)
+plt.hist(weights, bins=6, density=True, alpha=0.4, label='sample histogram')
+plt.plot(x, rv.pdf(x), color='crimson', label='population model')
+plt.legend()
+plt.show()
 ```
-
-In real inferential problems, you only see the sample, so $\bar{x}$ and $s$ are what you compute directly.
 
 ## Summary
 
 - Inferential statistics uses a **sample** to say something about a **population**.
-- Sample quantities are **statistics**; population quantities are **parameters**.
-- Probability distributions are essential because sample results vary from one sample to another.
-- Point estimates give one value; interval estimates add uncertainty.
-- Quiz mindset: always ask **what is observed (sample)** and **what is being inferred (population)**.
+- Descriptive statistics summarizes what happened; inference supports conclusions beyond the observed data.
+- Probability distributions are the bridge from sample evidence to population-level probability statements.
+- Good inference also reports **uncertainty**, not just one number.
+- Quiz mindset: always ask **what is the sample**, **what is the population**, and **what conclusion is being generalized**.

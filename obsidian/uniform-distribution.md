@@ -12,94 +12,80 @@ sources:
 
 # Uniform Distribution
 
-A uniform distribution means all outcomes in the allowed range are treated as equally likely. It is the natural model when there is no reason to favor one outcome over another. [→ 2.1.6 @ 00:14] [→ 2.1.6 @ 01:39]
+A uniform distribution represents uncertainty that is spread evenly across the allowed values. The lecture's intuition is: do not favor one outcome over another. [→ 2.1.6 @ 00:16] [→ 2.1.6 @ 01:41]
 
 ## Discrete uniform distribution
 
-The lecture starts with the fair die: each value from 1 to 6 has probability $1/6$. [→ 2.1.6 @ 00:34]
+The simplest example is a fair die. Outcomes 1 through 6 are all possible, and each one has the same probability. [→ 2.1.6 @ 00:35] [→ 2.1.6 @ 00:58]
 
-If there are $m$ equally likely discrete outcomes, then
+If there are $m$ equally likely outcomes, then each one gets probability
 
 $$
 P(X=x)=\frac{1}{m}
 $$
 
-for each allowed value $x$.
+for the allowed values of $x$. [→ 2.1.6 @ 02:59]
 
 ## Continuous uniform distribution
 
-For a continuous uniform random variable on $[a,b]$, every interval of the same length has the same probability. [→ 2.1.6 @ 03:57]
+When the variable can take any value in an interval, the lecture switches to the **continuous** uniform model. The example is temperature ranging from 12 to 17 with no bias toward either end of the range. [→ 2.1.6 @ 03:44] [→ 2.1.6 @ 04:19]
 
-Its density is constant:
+For $X \sim U(a,b)$, the density is flat:
 
 $$
 f(x)=\frac{1}{b-a}, \qquad a \le x \le b
 $$
 
-and zero otherwise.
-
-The CDF is
+and the area to the left of $x$ is
 
 $$
 F(x)=\frac{x-a}{b-a}, \qquad a \le x \le b
 $$
 
-Important quiz fact: because this is a **continuous** distribution,
+## Bug-fix time example
 
-$$
-P(X=c)=0
-$$
+The hands-on lecture models bug-fix times in hours. After plotting a histogram and density estimate, the fitted shape looks fairly flat on top, so a continuous uniform distribution on 1 to 5 hours is treated as a reasonable model. [→ 2.1.7 @ 01:39] [→ 2.1.7 @ 02:46] [→ 2.1.7 @ 03:03]
 
-for any single exact value $c$.
+The lecture then uses three kinds of questions:
 
-## Mean and variance
+- **left-tail probability**: $P(X<3)=0.5$ [→ 2.1.7 @ 04:20] [→ 2.1.7 @ 04:37]
+- **right-tail probability**: $P(X>2)=0.75$ using $1-\text{CDF}$ [→ 2.1.7 @ 04:46] [→ 2.1.7 @ 05:07]
+- **percentiles**: the median is 3 and the 25th percentile is 2 [→ 2.1.7 @ 05:46] [→ 2.1.7 @ 06:45]
 
-For $X \sim U(a,b)$,
+## CDF vs PPF
 
-$$
-E[X]=\frac{a+b}{2}
-$$
+The lecture uses two matching tools:
 
-$$
-\operatorname{Var}(X)=\frac{(b-a)^2}{12}
-$$
+- **CDF**: put in a number, get the probability to the left of it. [→ 2.1.7 @ 03:42]
+- **PPF** (percent point function): put in a probability, get the cutoff value that leaves that much probability to the left. [→ 2.1.7 @ 05:46] [→ 2.1.7 @ 07:01]
 
 ## Python hands-on
-
-The hands-on lecture models bug-fix times as roughly uniform from 1 hour to 5 hours. [→ 2.1.7 @ 03:12]
 
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import uniform
 
-rv = uniform(loc=1, scale=4)   # U(1, 5)
+rv = uniform(loc=1, scale=4)   # uniform on [1, 5]
 x = np.linspace(1, 5, 200)
-pdf = rv.pdf(x)
 
-p_lt_3 = rv.cdf(3)             # P(X < 3) = 0.5
-p_gt_2 = 1 - rv.cdf(2)         # P(X > 2) = 0.75
-median = rv.ppf(0.50)          # 3
-q25 = rv.ppf(0.25)             # 2
+pdf = rv.pdf(x)
+p_lt_3 = rv.cdf(3)
+p_gt_2 = 1 - rv.cdf(2)
+median = rv.ppf(0.50)
+q25 = rv.ppf(0.25)
 
 plt.plot(x, pdf)
-plt.xlabel('time (hours)')
+plt.xlabel('bug-fix time (hours)')
 plt.ylabel('density')
 plt.title('Continuous Uniform Distribution on [1, 5]')
 plt.show()
 ```
 
-Lecture values to remember:
-
-- $P(X<3)=0.5$ [→ 2.1.7 @ 04:19]
-- $P(X>2)=0.75$ [→ 2.1.7 @ 04:45]
-- median $=3$ and 25th percentile $=2$ [→ 2.1.7 @ 05:16]
-
 ## Summary
 
 - Uniform means **equal likelihood across the support**.
-- A fair die is a **discrete uniform** example.
-- On $[a,b]$, the continuous uniform density is $1/(b-a)$.
-- Mean: $(a+b)/2$.
-- Variance: $(b-a)^2/12$.
-- Use it when the problem states that every outcome in a range is equally plausible.
+- A fair die is the discrete version; a flat interval is the continuous version.
+- In the continuous case, probabilities come from **areas**, so CDF and PPF are the main tools.
+- The bug-fix example uses a uniform model on 1 to 5 hours.
+- Quiz mindset: if the problem says “all values in the range are equally likely,” think **uniform**.
