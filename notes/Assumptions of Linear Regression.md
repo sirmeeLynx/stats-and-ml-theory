@@ -7,6 +7,7 @@ sources:
     course_id: 141736
     summary_file: 12604588
     transcript_file: 13799117
+    recording: "multicollinearity @ 00:16:55"
 ---
 
 # Assumptions of Linear Regression
@@ -46,7 +47,7 @@ model's inferences on unseen data may be untrustworthy.
 See [[Correlation vs Causation]] and [[Regularization]] (which helps when many
 correlated features exist).
 
-## From the live class (LVC 2): diagnosing violations
+## Diagnosing violations
 
 - **Heteroscedasticity** — the residual variance is **not constant** along the
   regression line (the least-squares formulas assume *homoscedasticity*). With one
@@ -58,8 +59,6 @@ correlated features exist).
   standard-error formulas require $(X^{T}X)^{-1}$. Fix by **removing** some of the
   collinear features so the information each carries becomes unique. (Mild correlation
   that does not fully duplicate a feature is fine — $X$ can still be full rank.)
-
-*Recording: LVC 2 multicollinearity @ 00:16:55.*
 
 ## Summary
 

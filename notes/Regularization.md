@@ -7,6 +7,7 @@ sources:
     course_id: 141736
     summary_file: 12604588
     transcript_file: 13799117
+    recording: "Lasso @ 01:14:27, Ridge @ 01:17:43"
 ---
 
 # Regularization
@@ -63,7 +64,7 @@ ridge = Ridge(alpha=1.0).fit(X_train, y_train)   # L2
 lasso = Lasso(alpha=0.1).fit(X_train, y_train)   # L1 — some coefs become 0
 ```
 
-## From the live class (LVC 2): the marketing example
+## In practice: sparsity and non-linear features
 
 Framing: regularization adds a term that **stops the parameters chasing the noise** by
 penalising them. **Ridge** has a *"bias in favour of zero"* — it pushes weights toward
@@ -78,8 +79,6 @@ Related idea — **non-linear features**: adding a product/transformation (e.g.
 **TV·Radio**) is equivalent to adding a new variable, and it lifted the advertising
 model's $R^2$ from **0.897 → 0.968**. The algorithm is still called *linear* regression
 because it is **linear in the parameters**, not necessarily in the variables.
-
-*Recording: LVC 2 Lasso @ 01:14:27, Ridge @ 01:17:43.*
 
 ## Summary
 

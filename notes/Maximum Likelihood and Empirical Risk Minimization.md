@@ -7,6 +7,7 @@ sources:
     course_id: 141736
     summary_file: 12604567
     transcript_file: 13795232
+    recording: "@ 01:00:20"
 ---
 
 # Maximum Likelihood and Empirical Risk Minimization
@@ -50,7 +51,7 @@ We estimate parameters by **minimizing** this empirical risk (e.g. minimizing MS
 So **maximizing likelihood** and **minimizing empirical risk** lead to the same
 estimated parameters.
 
-## From the live class (LVC 1)
+## Obtaining the estimator: plug-in vs maximum likelihood
 
 The estimator $g$ can be obtained several ways. Two were named in class:
 
@@ -61,8 +62,6 @@ The estimator $g$ can be obtained several ways. Two were named in class:
   **model parameters** as the unknowns under a hypothesis, then **maximise the
   likelihood using calculus** to solve for them. These parameters are taken as best for
   the model that relates output to inputs.
-
-*Recording: LVC 1 @ 01:00:20.*
 
 ## Summary
 

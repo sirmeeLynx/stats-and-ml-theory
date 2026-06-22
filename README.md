@@ -19,6 +19,14 @@ Markdown notes are the source of truth because they support fast note-taking, wi
 - `build/` - generated PDF output, ignored by Git
 - `src/` - helper scripts or examples
 
+## Sources
+
+Notes are distilled from the course pages and the three live virtual classes (LVC 1–3).
+Each note's YAML frontmatter records its `sources` (course page IDs and, where relevant,
+the `live_class` summary/transcript IDs and recording timestamps) — this metadata feeds
+the knowledge graph but does not render into the PDF. Raw LVC transcripts (WEBVTT) and
+post-session summary PDFs are cached outside the repo at `~/lms/machine-learning/`.
+
 ## Build
 
 Generate LaTeX and PDF outputs:

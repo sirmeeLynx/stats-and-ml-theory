@@ -7,6 +7,7 @@ sources:
     course_id: 141736
     summary_file: 12604566
     transcript_file: 13808560
+    recording: "Bayes rule @ 00:43:02, posterior @ 00:59:23"
 ---
 
 # LDA and QDA
@@ -50,7 +51,7 @@ difference is the covariance assumption:
 
 Relates to [[Classification]] and [[Normal Distribution]].
 
-## From the live class (LVC 3): derivation & loan-default results
+## Derivation and loan-default results
 
 Both methods come from a **Gaussian model-based** classifier combined with **Bayes'
 rule**. Each class $k$ has a **prior** $\pi_k = P(Y=k)$ and a (multivariate) **normal**
@@ -69,8 +70,6 @@ $$
 
 **Loan-default misclassification rates** (using all features): **LDA 2.75%, QDA 2.70%**
 — both beat the 3.33% base rate of the dumb "everyone no-default" model.
-
-*Recording: LVC 3 Bayes rule @ 00:43:02, posterior @ 00:59:23.*
 
 ## Summary
 

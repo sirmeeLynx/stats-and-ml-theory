@@ -7,6 +7,7 @@ sources:
     course_id: 141736
     summary_file: 12604566
     transcript_file: 13808560
+    recording: "logistic @ 00:17:05, loan default @ 00:19:00"
 ---
 
 # Classification
@@ -59,7 +60,7 @@ proba = logit.predict_proba(X_test)[:, 1]   # probability of class 1
 knn = KNeighborsClassifier(n_neighbors=5).fit(X_train, y_train)
 ```
 
-## From the live class (LVC 3): loan default & why not linear regression
+## Worked example: loan default and why not linear regression
 
 Worked example: **loan default** — 10,000 customers with features **Student, Balance,
 Income** predicting the binary target **Default / No-default**. The classifier is a
@@ -72,8 +73,6 @@ range**, so it cannot output a probability (we need a value in $[0,1]$), and **M
 meaningless** for class labels. The fix: pass the linear input through the **Sigmoid**,
 $y = \dfrac{e^{z}}{e^{z}+1} \in (0,1)$, then threshold (usually 0.5) → **logistic
 regression**.
-
-*Recording: LVC 3 logistic @ 00:17:05, loan default @ 00:19:00.*
 
 ## Summary
 

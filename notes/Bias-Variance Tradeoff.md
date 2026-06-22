@@ -7,6 +7,7 @@ sources:
     course_id: 141736
     summary_file: 12604588
     transcript_file: 13799117
+    recording: "overfitting @ 00:11:49"
 ---
 
 # Bias-Variance Tradeoff
@@ -52,7 +53,7 @@ sources:
 The goal is the **sweet spot** balancing the two. [[Regularization]] and
 [[Cross-Validation]] are the practical tools to manage it.
 
-## From the live class (LVC 2): the U-shaped validation curve
+## The U-shaped validation curve
 
 As you **add features**, the **training error keeps dropping** — eventually the model
 starts **fitting the noise** (overfitting). The **validation error**, however, follows a
@@ -61,8 +62,6 @@ sits in the valley** of that curve — flexible enough to learn the signal, not 
 it memorises noise. The professor's loose shorthand: **bias ≈ training error, variance ≈
 testing error**, and we want **both low**. Too few features → underfit; too many →
 overfit.
-
-*Recording: LVC 2 overfitting @ 00:11:49.*
 
 ## Summary
 

@@ -37,7 +37,7 @@ is explained, and concepts cross-link to form a knowledge graph.
 
 ## Machine Learning — Supervised Learning
 
-### Regression (LVC 1 & 2)
+### Regression
 
 - [[Supervised Learning]] — labeled data; regression vs classification
 - [[Linear Regression]] — $Y=\theta_0+\theta_1 X+R$; MSE, $R^2$, adjusted $R^2$, RMSE
@@ -49,24 +49,8 @@ is explained, and concepts cross-link to form a knowledge graph.
 - [[Bootstrapping]] — resampling with replacement
 - [[Cross-Validation]] — K-fold
 
-### Classification (LVC 3)
+### Classification
 
 - [[Classification]] — logistic regression (sigmoid), K-NN
 - [[Classification Performance Metrics]] — confusion matrix, accuracy, precision, recall, F1
 - [[LDA and QDA]] — Bayes-based; same vs different covariance
-
-### Live class material (MIT faculty recordings)
-
-All 12 ML notes above now fold in the **three live virtual classes** (LVC 1–3) — each
-note has a *"From the live class"* section with worked examples (Advertising & Sales,
-Loan default) and **recording deep-link timestamps**. Raw sources are cached outside the
-repo at `~/lms/machine-learning/`:
-
-- **Transcripts** (official WEBVTT) — `transcripts/` (LVC 1–3)
-- **Post-session summaries** (PDF) — `summaries/` (LVC 1–3)
-
-| LVC | Topic | Maps to |
-|-----|-------|---------|
-| **1** | Supervised Learning & Regression | Supervised Learning, Linear Regression, MLE/ERM |
-| **2** | Model Evaluation, Cross-Validation, Bootstrapping | Assumptions, Correlation vs Causation, Bias-Variance, Regularization, Cross-Validation, Bootstrapping |
-| **3** | Classification | Classification, Performance Metrics, LDA & QDA |

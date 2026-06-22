@@ -7,6 +7,7 @@ sources:
     course_id: 141736
     summary_file: 12604588
     transcript_file: 13799117
+    recording: "LOOCV @ 01:43:11"
 ---
 
 # Cross-Validation
@@ -47,7 +48,7 @@ scores = cross_val_score(model, X, y, cv=kf, scoring="r2")
 print(scores.mean())
 ```
 
-## From the live class (LVC 2): from validation set to K-fold
+## From validation set to K-fold
 
 The progression taught:
 
@@ -62,8 +63,6 @@ The progression taught:
 3. **K-fold CV** — the practical compromise (a coarser LOOCV): split into $K$ folds,
    rotate the hold-out, average. As $K$ rises the per-fold error tends to rise; pick the
    $K$ at a sensible error threshold (commonly 5 or 10).
-
-*Recording: LVC 2 LOOCV @ 01:43:11.*
 
 ## Summary
 

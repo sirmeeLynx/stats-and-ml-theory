@@ -7,6 +7,7 @@ sources:
     course_id: 141736
     summary_file: 12604566
     transcript_file: 13808560
+    recording: "imbalanced data @ 01:08:41, threshold @ 00:24:50"
 ---
 
 # Classification Performance Metrics
@@ -83,7 +84,7 @@ print(confusion_matrix(y_test, pred))
 print(precision_score(y_test, pred), recall_score(y_test, pred), f1_score(y_test, pred))
 ```
 
-## From the live class (LVC 3): the accuracy paradox & cost of errors
+## The accuracy paradox and the cost of errors
 
 In the loan-default data only **3.33%** of records are "default". A **dumb model** that
 labels **everyone "no-default"** is therefore **~96.67% accurate** — impressive-looking,
@@ -99,8 +100,6 @@ imbalanced data**.
 
 We **shift the decision threshold** toward whichever error is more costly for the
 business.
-
-*Recording: LVC 3 imbalanced data @ 01:08:41, threshold @ 00:24:50.*
 
 ## Summary
 

@@ -10,6 +10,7 @@ sources:
     course_id: 141736
     summary_file: 12604567
     transcript_file: 13795232
+    recording: "@ 00:29:34"
 ---
 
 # Supervised Learning
@@ -51,7 +52,7 @@ reduction), which has *no* labeled target.
 See [[Linear Regression]] for the first regression algorithm and [[Classification]]
 for logistic regression and K-NN.
 
-## From the live class (LVC 1)
+## The supervised-learning workflow
 
 The professor framed a supervised-learning project as **four steps**:
 
@@ -72,7 +73,7 @@ He also contrasted **two ways to attack a data-science problem**:
   to build an **interpretable** model.
 
 The input→output mapping is an **estimator** $y = g(x_1, x_2, \dots, x_n)$, trained on
-the available data and used to predict unseen data. *Recording: LVC 1 @ 00:29:34.*
+the available data and used to predict unseen data.
 
 ## Summary
 

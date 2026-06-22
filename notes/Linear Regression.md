@@ -7,6 +7,7 @@ sources:
     course_id: 141736
     summary_file: 12604567
     transcript_file: 13795232
+    recording: "@ 00:29:34; residuals @ 00:37:11"
 ---
 
 # Linear Regression
@@ -73,7 +74,7 @@ r2 = r2_score(y_test, pred)
 rmse = np.sqrt(mean_squared_error(y_test, pred))
 ```
 
-## From the live class (LVC 1): Advertising & Sales
+## Worked example: Advertising & Sales
 
 The flagship worked example: advertising spend on **TV, Radio and Newspaper across 200
 markets** versus **Sales** (a continuous target ⇒ regression). Scatter/correlation
@@ -86,8 +87,7 @@ $$
 
 The quantity minimised is the **sum of squared residuals**, with $R_i = y_i - \hat{y}_i$.
 Adding the interaction feature **TV·Radio** lifts $R^2$ to **0.968** — see
-[[Regularization]] for why that is still "linear" regression. *Recording: LVC 1 @
-00:29:34; residuals @ 00:37:11.*
+[[Regularization]] for why that is still "linear" regression.
 
 ## Summary
 
