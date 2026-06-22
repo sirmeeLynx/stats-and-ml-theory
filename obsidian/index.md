@@ -34,3 +34,39 @@ is explained, and concepts cross-link to form a knowledge graph.
 - [[Performing a Hypothesis Test]] — worked example
 - [[One-tailed and Two-tailed Tests]]
 - [[Confidence Intervals]] — CI / test duality
+
+## Machine Learning — Supervised Learning
+
+### Regression (LVC 1 & 2)
+
+- [[Supervised Learning]] — labeled data; regression vs classification
+- [[Linear Regression]] — $Y=\theta_0+\theta_1 X+R$; MSE, $R^2$, adjusted $R^2$, RMSE
+- [[Maximum Likelihood and Empirical Risk Minimization]] — max likelihood ⇔ min risk
+- [[Assumptions of Linear Regression]] — linearity, multicollinearity, homoscedasticity, normal errors, endogeneity
+- [[Correlation vs Causation]] — correlation ≠ causation
+- [[Bias-Variance Tradeoff]] — overfit (high variance) vs underfit (high bias)
+- [[Regularization]] — Ridge (L2) vs Lasso (L1, feature selection)
+- [[Bootstrapping]] — resampling with replacement
+- [[Cross-Validation]] — K-fold
+
+### Classification (LVC 3)
+
+- [[Classification]] — logistic regression (sigmoid), K-NN
+- [[Classification Performance Metrics]] — confusion matrix, accuracy, precision, recall, F1
+- [[LDA and QDA]] — Bayes-based; same vs different covariance
+
+### Live class material (MIT faculty recordings)
+
+All 12 ML notes above now fold in the **three live virtual classes** (LVC 1–3) — each
+note has a *"From the live class"* section with worked examples (Advertising & Sales,
+Loan default) and **recording deep-link timestamps**. Raw sources are cached outside the
+repo at `~/lms/machine-learning/`:
+
+- **Transcripts** (official WEBVTT) — `transcripts/` (LVC 1–3)
+- **Post-session summaries** (PDF) — `summaries/` (LVC 1–3)
+
+| LVC | Topic | Maps to |
+|-----|-------|---------|
+| **1** | Supervised Learning & Regression | Supervised Learning, Linear Regression, MLE/ERM |
+| **2** | Model Evaluation, Cross-Validation, Bootstrapping | Assumptions, Correlation vs Causation, Bias-Variance, Regularization, Cross-Validation, Bootstrapping |
+| **3** | Classification | Classification, Performance Metrics, LDA & QDA |
