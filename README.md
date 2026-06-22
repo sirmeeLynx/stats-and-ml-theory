@@ -12,7 +12,7 @@ Markdown notes are the source of truth because they support fast note-taking, wi
 
 ## Structure
 
-- `obsidian/` - source notes using Markdown and `[[wikilinks]]`
+- `notes/` - source notes using Markdown and `[[wikilinks]]`
 - `.foam/` - Foam graph configuration for VS Code
 - `figures/` - diagrams and generated images
 - `generated/` - generated LaTeX output, ignored by Git

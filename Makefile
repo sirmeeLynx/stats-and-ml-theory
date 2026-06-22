@@ -6,7 +6,7 @@ notes: latex pdf
 
 latex:
 	@mkdir -p generated
-	@for file in obsidian/*.md; do \
+	@for file in notes/*.md; do \
 		name=$$(basename "$$file" .md | tr ' ' '-'); \
 		pandoc "$$file" \
 			--from markdown+wikilinks_title_after_pipe+tex_math_dollars+tex_math_single_backslash \
@@ -16,7 +16,7 @@ latex:
 
 pdf:
 	@mkdir -p build
-	@(printf '%s\0' obsidian/index.md; find obsidian -maxdepth 1 -name '*.md' ! -name 'index.md' -print0 | sort -z) | \
+	@(printf '%s\0' notes/index.md; find notes -maxdepth 1 -name '*.md' ! -name 'index.md' -print0 | sort -z) | \
 		xargs -0 pandoc \
 			--from markdown+wikilinks_title_after_pipe+tex_math_dollars+tex_math_single_backslash \
 			--pdf-engine=tectonic \
