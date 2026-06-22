@@ -16,7 +16,7 @@ latex:
 
 pdf:
 	@mkdir -p build
-	@(printf '%s\0' notes/index.md; find notes -maxdepth 1 -name '*.md' ! -name 'index.md' -print0 | sort -z) | \
+	@python3 src/note-order.py | \
 		xargs -0 pandoc \
 			--from markdown+wikilinks_title_after_pipe+tex_math_dollars+tex_math_single_backslash \
 			--pdf-engine=tectonic \
