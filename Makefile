@@ -11,6 +11,7 @@ latex:
 		pandoc "$$file" \
 			--from markdown+wikilinks_title_after_pipe+tex_math_dollars+tex_math_single_backslash \
 			--to latex \
+			--resource-path=notes \
 			-o "generated/$$name.tex"; \
 	done
 
@@ -20,6 +21,7 @@ pdf:
 		xargs -0 pandoc \
 			--from markdown+wikilinks_title_after_pipe+tex_math_dollars+tex_math_single_backslash \
 			--pdf-engine=tectonic \
+			--resource-path=notes \
 			-o build/stats-and-ml-theory.pdf
 
 clean:

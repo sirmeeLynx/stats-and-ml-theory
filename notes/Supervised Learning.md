@@ -20,7 +20,8 @@ with the correct output (the *label*). After training, the model predicts the la
 for new instances where it is unknown. The analogy: a teacher (the labels) grades a
 student's answers (the predictions); the **error** is what the model minimizes.
 
-This contrasts with **unsupervised learning** (clustering, [[PCA]], dimensionality
+This contrasts with **unsupervised learning** (clustering,
+[[Dimensionality Reduction (PCA)|PCA]], dimensionality
 reduction), which has *no* labeled target.
 
 ## Two kinds of supervised problems

@@ -54,3 +54,28 @@ is explained, and concepts cross-link to form a knowledge graph.
 - [[Classification]] — logistic regression (sigmoid), K-NN
 - [[Classification Performance Metrics]] — confusion matrix, accuracy, precision, recall, F1
 - [[LDA and QDA]] — Bayes-based; same vs different covariance
+
+## Machine Learning — Unsupervised Learning
+
+### Linear Algebra & Dimensionality Reduction
+
+- [[Linear Algebra]] — matrices, vectors, dot product, determinant
+- [[Eigenvectors and Eigenvalues]] — $Av=\lambda v$; directional invariance
+- [[Covariance Matrix]] — variances on the diagonal, covariances off it
+- [[Dimensionality Reduction (PCA)]] — PCA (eigenvectors of $\Sigma$) and t-SNE
+- [[KL Divergence]] — $D_{KL}(p\|q)$; asymmetric distribution distance
+
+### Graph & Network Analysis
+
+- [[Power-Law Distribution]] — $P_k=c\,k^{-\alpha}$; long-tailed, scale-free
+- [[Graph Theory]] — $G=(V,E)$; directed vs undirected, weighted edges
+- [[Matrix Representation of Graphs]] — adjacency and weighted adjacency matrices
+
+### Clustering
+
+- [[Unsupervised Learning]] — learning from unlabeled data; clustering vs association
+- [[Distance and Scaling Measures]] — Euclidean / Manhattan; normalization vs standardization
+- [[K-means Clustering]] — centroids, WCSS, the Elbow method
+- [[Gaussian Mixture Models]] — soft clustering via EM ($\mu_k,\Sigma_k,\pi_k$)
+- [[Hierarchical Clustering]] — agglomerative / divisive; linkage; dendrograms
+- [[DBSCAN]] — density-based; core / border / noise; arbitrary shapes
