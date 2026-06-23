@@ -2,7 +2,7 @@
 sources:
   - page: "Performance Metrics - Classification"
     course_id: 141736
-    item_id: 7718139
+    item_id: 7718103
   - live_class: "LVC 3: Introduction to Supervised Learning and Classification"
     course_id: 141736
     summary_file: 12604566
@@ -27,6 +27,8 @@ A cross-tab of **actual vs predicted** classes:
 - **TN** — actual 0, predicted 0
 - **FN** — actual 1, predicted 0 (missed a positive)
 - **FP** — actual 0, predicted 1 (false alarm)
+
+![Confusion matrix laying out true/false positives and negatives (TP, FN, FP, TN)](../figures/performance-metrics/0.png)
 
 ## Balanced vs imbalanced data
 

@@ -20,6 +20,12 @@ A **relationship or pattern** between two variables, observable on a **scatter p
 - **Negative correlation** — one increases as the other decreases.
 - **No / zero correlation** — points are randomly scattered; no consistent trend.
 
+![Positive correlation: both variables rise together](../figures/correlation-causation/0.png)
+
+![Negative correlation: one rises as the other falls](../figures/correlation-causation/1.png)
+
+![No correlation: points scattered with no consistent trend](../figures/correlation-causation/2.png)
+
 ## Causation
 
 **Causation** means one event **causes** another to occur (e.g. summer → more ice-cream
@@ -32,6 +38,8 @@ sales; summer → more A/C sales).
 A third (confounding) variable may drive the apparent relationship. Ice-cream sales and
 A/C sales are **positively correlated** because both rise in summer — but neither
 *causes* the other; the **season** is the hidden cause.
+
+![The summer season causes both A/C and ice-cream sales; the two are correlated but neither causes the other](../figures/correlation-causation/3.png)
 
 Relevant to the [[Assumptions of Linear Regression]] (multicollinearity, endogeneity).
 

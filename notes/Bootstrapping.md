@@ -25,6 +25,14 @@ create many simulated samples (each called a **bootstrap sample**).
 Example: from a dataset, draw 3-record bootstrap samples — a given record (say index 7)
 may repeat twice in one sample, while another sample may have all unique records.
 
+![Sampling with replacement: a bootstrap sample drawn from the original dataset, where index 7 repeats](../figures/bootstrapping/0.png)
+
+Drawing repeatedly produces many different bootstrap samples from the same data:
+
+![A second bootstrap sample, with a different repeated record](../figures/bootstrapping/1.png)
+
+![A third bootstrap sample](../figures/bootstrapping/2.png)
+
 ## Why it matters
 
 Bootstrapping lets us estimate the **variability** of a statistic (e.g. a coefficient

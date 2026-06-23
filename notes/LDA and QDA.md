@@ -2,7 +2,7 @@
 sources:
   - page: "LDA and QDA"
     course_id: 141736
-    item_id: 7718139
+    item_id: 7718104
   - live_class: "LVC 3: Introduction to Supervised Learning and Classification"
     course_id: 141736
     summary_file: 12604566
@@ -48,6 +48,10 @@ difference is the covariance assumption:
   boundary that best separates classes. Preferred with **small** samples.
 - **QDA** — allows **different covariance matrices** per class; draws a **quadratic**
   (more flexible) boundary; performs better on **large** datasets.
+
+![LDA projects the data onto an axis that best separates the classes (before vs after projection)](../figures/lda-qda/24.png)
+
+![QDA allows a curved (quadratic) decision boundary between the classes](../figures/lda-qda/25.png)
 
 Relates to [[Classification]] and [[Normal Distribution]].
 

@@ -30,6 +30,8 @@ sources:
 
 > A model cannot overfit and underfit at the same time.
 
+![Underfitted, good fit, and overfitted models on the same data](../figures/bias-variance/0.png)
+
 ## Bias and variance
 
 - **Bias** — how much predictions differ from the true values *on the training data*
@@ -38,6 +40,8 @@ sources:
 - **Variance** — how much the model's performance changes if trained on *different*
   data. **High variance → overfitting** (fits training data, including noise, too
   closely).
+
+![Bias and variance as a bullseye: low bias hits the centre, low variance keeps shots tightly grouped](../figures/bias-variance/1.png)
 
 ## The tradeoff
 

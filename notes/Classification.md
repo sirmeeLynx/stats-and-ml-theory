@@ -2,7 +2,7 @@
 sources:
   - page: "Supervised Learning - Classification"
     course_id: 141736
-    item_id: 7718081
+    item_id: 7718102
   - live_class: "LVC 3: Introduction to Supervised Learning and Classification"
     course_id: 141736
     summary_file: 12604566
@@ -30,6 +30,8 @@ $$
 The output is the **probability** of the positive class given the features; a threshold
 (commonly 0.5) converts it to a class label.
 
+![Linear regression fits a straight line, while logistic regression fits the S-shaped sigmoid that stays within (0, 1)](../figures/classification/4.png)
+
 ## K-Nearest Neighbors (K-NN)
 
 A distance-based algorithm (mostly used for classification, but works for regression):
@@ -41,9 +43,13 @@ A distance-based algorithm (mostly used for classification, but works for regres
 3. **Find the K nearest** points.
 4. **Majority vote** of their labels → assigned class.
 
+![K-NN classifying a new point (K = 3): compute distances, find the three nearest neighbors, take the majority vote](../figures/classification/7.png)
+
 **Choosing K:** plot validation error vs K; as K grows the validation error falls then
 rises — pick the **K with the lowest validation error**. Small K → noisy/overfit; large
 K → oversmoothed/underfit (links to [[Bias-Variance Tradeoff]]).
+
+![Validation error versus K: the error falls then rises, so the best K sits at the minimum](../figures/classification/8.png)
 
 See [[Classification Performance Metrics]] for how to evaluate these models, and
 [[LDA and QDA]] for discriminant-analysis classifiers.

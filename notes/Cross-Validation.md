@@ -28,6 +28,8 @@ The most common method:
 
 Every observation is used for validation **exactly once** and for training $K-1$ times.
 
+![5-fold cross-validation: each fold serves as the validation set once while the rest train the model](../figures/cross-validation/0.png)
+
 ## Why use it
 
 - More reliable than a single train/validation split (less dependent on one lucky/

@@ -33,6 +33,8 @@ $$
 R_i = Y_i - \hat{Y}_i
 $$
 
+![The best-fit line through the data; the residual is the vertical gap between an actual point and the line](../figures/linear-regression/22.jpg)
+
 We choose $\theta_0, \theta_1$ to **minimize the Mean Squared Error (MSE)**:
 
 $$
